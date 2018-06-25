@@ -22,7 +22,8 @@ var propTypes = {
   labelStyle: textPropTypes.style,
   disabled: PropTypes.bool,
   style: View.propTypes.style,
-  animated: PropTypes.bool
+  animated: PropTypes.bool,
+  inputRef: PropTypes.func
 }
 
 var defaultProps = {
@@ -165,6 +166,7 @@ var FloatingLabel  = createReactClass({
         {this._renderLabel()}
         <TextInput
           {...props}
+          ref={(component) => inputRef && inputRef(component)}
         >
         </TextInput>
       </View>
