@@ -22,10 +22,16 @@ var propTypes = {
   labelStyle: textPropTypes.style,
   disabled: PropTypes.bool,
   style: View.propTypes.style,
+  animated: PropTypes.bool
+}
+
+var defaultProps = {
+  animated: true
 }
 
 var FloatingLabel  = createReactClass({
   propTypes: propTypes,
+  defaultProps: defaultProps,
 
   getInitialState () {
     var state = {
@@ -57,7 +63,7 @@ var FloatingLabel  = createReactClass({
         labelStyle[prop],
         {
           toValue: nextStyle[prop],
-          duration: 200
+          duration: this.props.animated ? 200 : 0
         },
         Easing.ease
       )
