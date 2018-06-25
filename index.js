@@ -32,7 +32,7 @@ var defaultProps = {
 
 var FloatingLabel  = createReactClass({
   propTypes: propTypes,
-  defaultProps: () => defaultProps,
+  getDefaultProps: () => defaultProps,
 
   getInitialState () {
     var state = {
@@ -166,7 +166,7 @@ var FloatingLabel  = createReactClass({
         {this._renderLabel()}
         <TextInput
           {...props}
-          ref={(component) => inputRef && inputRef(component)}
+          ref={(component) => this.props.inputRef && this.props.inputRef(component)}
         >
         </TextInput>
       </View>
