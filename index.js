@@ -31,7 +31,7 @@ var defaultProps = {
 
 var FloatingLabel  = createReactClass({
   propTypes: propTypes,
-  defaultProps: defaultProps,
+  defaultProps: () => defaultProps,
 
   getInitialState () {
     var state = {
