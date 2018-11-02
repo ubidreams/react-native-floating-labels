@@ -120,7 +120,7 @@ var FloatingLabel  = createReactClass({
   },
 
   render() {
-    var filteredProps = Object.assign({}, this.props, {style : {}, children: null, inputRef : null});
+    var filteredProps = Object.assign({}, this.props, { style: {}, children: null, inputRef: null });
     var props = Object.assign(
       {},
       filteredProps,
@@ -131,7 +131,7 @@ var FloatingLabel  = createReactClass({
           onFocus: this._onFocus,
           style: [styles.input],
           value: this.state.text,
-          ref: inputRef
+          ref: (component) => this.props.inputRef && this.props.inputRef(component)
       }
     );
     var elementStyles = [styles.element];
@@ -149,7 +149,6 @@ var FloatingLabel  = createReactClass({
         {this._renderLabel()}
         <TextInput
           {...props}
-          ref={(component) => this.props.inputRef && this.props.inputRef(component)}
         >
         </TextInput>
       </View>
